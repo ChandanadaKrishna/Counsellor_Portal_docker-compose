@@ -71,6 +71,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>01-counsellor_portal-app</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
