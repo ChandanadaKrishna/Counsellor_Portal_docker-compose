@@ -1,0 +1,20 @@
+version: "2"
+services:
+  mysqldb:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    networks:
+      - docker-compose-net
+
+  application:
+    image: counsellor-protal
+    ports:
+      - "8080:9090"
+    networks:
+      - docker-compose-net
+    depends_on:
+      - mysqldb
+
+networks:
+  docker-compose-net:

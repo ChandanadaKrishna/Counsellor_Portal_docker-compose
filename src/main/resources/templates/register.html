@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CounselTrack</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+	crossorigin="anonymous">
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+	rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap"
+	rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap"
+	rel="stylesheet">
+</head>
+<style>
+body {
+	background-color: #085c63;
+	margin: 0px;
+	color: #F0F0F0;
+}
+
+.mydiv {
+	margin: 50px auto;
+	max-width: 450px;
+	box-shadow: 0px 0px 15px gray;
+	border-radius: 5px;
+	padding: 20px 30px;
+	font-family:'Kanit', sans-serif;
+	
+}
+
+.caption {
+	font-size: 25px;
+	font-family: 'Exo 2', sans-serif;
+	text-align: center;
+	font-style: italic;
+}
+
+.mytitle {
+	font-size: 60px;
+	text-align: center;
+	font-family: "Kanit", sans-serif;
+	margin-top: 30px;
+}
+
+.custom-btn {
+	border-radius: 5px;
+	border: 1px solid black;
+	padding: 5px 10px;
+	background-color: #F0F0F0;
+}
+
+.custom-btn:hover {
+	border-radius: 5px;
+	padding: 5px 10px;
+	background-color: #ffc107;
+}
+input.form-control:focus{
+border:1px solid #ffc107 !important;
+box-shadow:0px 0px 10px #ffc107 ;
+}
+a{
+text-decoration:none;
+color:#ffffff !important;
+}
+
+</style>
+<body>
+	<div class="container">
+		<div class="mytitle">
+			<span style="color: #ffc107;"><b>C</b></span><span
+				style="color: #ffffff;">ounsel</span><span style="color: #00d4ff;"><b>T</b>rack</span>
+		</div>
+
+
+
+		<div class=caption>"A smarter way to track and guide student
+			enquiries"</div>
+
+		<div class="container mydiv">
+			<h2 style="color:#00d4ff">Registration</h2>
+			<font style="color:yellow">
+				<p th:text="${emsg}"></p>
+			</font> 
+			<font style="color:yellow">
+				<p th:text="${smsg}"></p>
+			</font>
+			<form th:action="@{/register}" th:object="${counsellor}"
+				method="post">
+				<div class="mb-3">
+					<label for="name" class="form-label">Name:</label> <input
+						type="text" th:field="*{name}" id="name" class="form-control" />
+					<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+						style="color:yellow"></p>
+				</div>
+
+				<div class="mb-3">
+					<label for="phonenumber" class="form-label">Phone Number:</label> <input
+						type="text" th:field="*{phonenumber}" id="phonenumber"
+						class="form-control" />
+					<p th:if="${#fields.hasErrors('phonenumber')}"
+						th:errors="*{phonenumber}" style="color: yellow !important;"></p>
+				</div>
+
+				<div class="mb-3">
+					<label for="email" class="form-label">Email:</label> <input
+						type="email" th:field="*{email}" id="email" class="form-control" />
+					<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+						style="color:yellow"></p>
+				</div>
+
+				<div class="mb-3">
+					<label for="password" class="form-label">Password:</label> <input
+						type="password" th:field="*{password}" id="password"
+						class="form-control" />
+					<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+						style="color:yellow"></p>
+				</div>
+
+				<div class="mb-3">
+					<input type="submit" value="register" class="custom-btn" />
+				</div>
+			</form>
+
+			<a href="/"> click here to login</a>
+		</div>
+	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous"></script>
+</body>
+</html>
