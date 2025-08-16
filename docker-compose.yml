@@ -13,7 +13,7 @@ services:
   application:
     image: counsellor-protal
     ports:
-      - "8080:9090"
+      - "9080:9090"
     networks:
       - docker-compose-net
     depends_on:
